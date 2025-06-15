@@ -16,6 +16,11 @@ img {
   width: 100%;
   /* gets rid of scrollbars and the white "line" at the bottom*/
   overflow: hidden;
+  /* fallback in case video doesn't load */
+  background-image: url("../images/background/fallback.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .video-container video {
