@@ -12,14 +12,21 @@ img {
 
 /* Background Video */
 .video-container {
-  height: 100vh;
+  /* position video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  /* fill viewport */
+  height: 100%;
   width: 100%;
   /* gets rid of scrollbars and the white "line" at the bottom*/
   overflow: hidden;
   /* fallback in case video doesn't load */
   background-image: url("../images/background/fallback.png");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
