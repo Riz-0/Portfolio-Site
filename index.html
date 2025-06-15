@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Riz's Portfolio</title>
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- JS -->
     <script src="app.js" defer></script>
     <!-- CSS -->
@@ -11,6 +19,22 @@
   </head>
   <body>
     <main>
+      <div class="status-bar">
+        <!-- Functions as a status bar on mobile and desktop mode -->
+        <div class="time"></div>
+        <div class="icons">
+          <nav>
+            <ul>
+              <li class="network">
+                <a href="#!"><i class="fa-solid fa-wifi"></i></a>
+              </li>
+              <li class="battery">
+                <a href="#!"><i class="fa-solid fa-battery-full"></i></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
       <!-- Background Video -->
       <div class="video-container">
         <video
