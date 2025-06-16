@@ -25,9 +25,17 @@ a {
 }
 
 /* Always make lists display: flex and remove bullets*/
-nav ul {
+ul {
   display: flex;
   list-style-type: none;
+}
+
+.container {
+  /* display: flex because it's easier to make .screen fill the entire height */
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* for old browsers */
+  height: 100dvh; /* for new browsers */
 }
 
 /* Background Video */
@@ -71,4 +79,32 @@ nav ul {
 .status-bar a {
   /* makes status bar icons unclickable */
   pointer-events: none;
+}
+
+/* Screen (where app icons, windows, etc go) */
+.screen {
+  flex: 1;
+}
+
+/* Nav Bar (only visible in mobile/tablet mode) */
+.nav-bar {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+.nav-bar li {
+  flex: 1;
+  text-align: center;
+}
+
+.fa-play {
+  /* rotate "back" button */
+  transform: rotate(180deg);
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-bar {
+    display: none;
+  }
 }
