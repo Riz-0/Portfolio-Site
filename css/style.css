@@ -10,12 +10,13 @@ img {
   max-width: 100%;
 }
 
-/* Nifty Globals */
+/* Always remove text-decoration and color from links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* Always make lists display: flex and remove bullets*/
 nav ul {
   display: flex;
   list-style-type: none;
@@ -57,7 +58,6 @@ nav ul {
 
 .status-bar ul {
   gap: 4px;
-  font-size: 14px;
 }
 
 .status-bar a {
