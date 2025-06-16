@@ -61,6 +61,6 @@ nav ul {
 }
 
 .status-bar a {
-  /* we don't want the status bar icons being clickable in mobile mode */
+  /* makes status bar icons unclickable */
   pointer-events: none;
 }
