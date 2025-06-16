@@ -10,6 +10,14 @@ img {
   max-width: 100%;
 }
 
+html {
+  /* Global Font */
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
 /* Always remove text-decoration and color from links */
 a {
   text-decoration: none;
