@@ -73,12 +73,37 @@ ul {
 }
 
 .status-bar ul {
-  gap: 4px;
+  gap: 8px;
 }
 
 .status-bar a {
   /* makes status bar icons unclickable */
   pointer-events: none;
+}
+
+.menu,
+.date-time,
+.icons {
+  /* centers each section respectively on the status bar */
+  flex: 1;
+}
+
+.menu {
+  display: none;
+}
+
+.date-time {
+  display: flex;
+  gap: 8px;
+}
+
+.date {
+  /* date is only visible in desktop mode */
+  display: none;
+}
+
+.icons ul {
+  justify-content: flex-end;
 }
 
 /* Screen (where app icons, windows, etc go) */
@@ -104,7 +129,26 @@ ul {
 }
 
 @media screen and (min-width: 1024px) {
+  /* Status Bar */
+  .status-bar {
+    background-color: rgba(38, 38, 38, 0.8);
+  }
+
+  .menu {
+    display: initial;
+  }
+
+  .date-time {
+    justify-content: center;
+  }
+
+  .date {
+    display: initial;
+  }
+
+  /* Nav Bar */
   .nav-bar {
+    /* Hide nav bar on laptops and desktops */
     display: none;
   }
 }
