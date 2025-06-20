@@ -152,6 +152,12 @@ ul {
   flex: 1;
 }
 
+.widget {
+  height: 100px;
+  background-color: #444;
+  border-radius: 8px;
+}
+
 /* Nav Bar (only visible in mobile/tablet mode) */
 .nav-bar {
   display: flex;
