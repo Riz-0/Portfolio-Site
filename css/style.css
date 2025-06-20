@@ -72,13 +72,15 @@ ul {
   color: #fff;
 }
 
-.status-bar ul {
-  gap: 8px;
-}
-
 .status-bar a {
   /* makes status bar icons unclickable */
   pointer-events: none;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .menu,
@@ -89,6 +91,7 @@ ul {
 }
 
 .menu {
+  /* hide "windows" menu in mobile mode */
   display: none;
 }
 
@@ -100,10 +103,6 @@ ul {
 .date {
   /* date is only visible in desktop mode */
   display: none;
-}
-
-.icons ul {
-  justify-content: flex-end;
 }
 
 /* Screen (where app icons, windows, etc go) */
