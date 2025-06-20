@@ -108,6 +108,48 @@ ul {
 /* Screen (where app icons, windows, etc go) */
 .screen {
   flex: 1;
+  position: relative;
+}
+
+/* App Launcher Layer */
+.launcher {
+  /* we want to be able to layer... layers on top of each other */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.row-bottom {
+  flex-direction: row-reverse;
+}
+
+.image {
+  flex: 1;
+}
+
+.apps {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.launcher-top .app {
+  flex: calc(50% - 8px);
+}
+
+.launcher-bottom .app {
+  flex: 1;
 }
 
 /* Nav Bar (only visible in mobile/tablet mode) */
