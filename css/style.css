@@ -193,6 +193,11 @@ ul {
     display: initial;
   }
 
+  .launcher {
+    /* hide the launcher on desktop (I like keeping a clean desktop) */
+    display: none;
+  }
+
   /* Nav Bar */
   .nav-bar {
     /* hide nav bar on laptops and desktops */
