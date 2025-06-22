@@ -29,7 +29,6 @@ function updateTime() {
   ];
   const dateEm = document.querySelector(".date");
   let day = d.getDay();
-  console.log(day);
   let date = d.getDate();
   let month = d.getMonth() - 1;
   let year = d.getFullYear();
