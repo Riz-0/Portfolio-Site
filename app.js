@@ -12,7 +12,7 @@ function updateTime() {
   timeEm.textContent = hours + ":" + minutes;
 
   // Set date
-  const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const months = [
     "Jan",
     "Feb",
@@ -28,7 +28,8 @@ function updateTime() {
     "Dec",
   ];
   const dateEm = document.querySelector(".date");
-  let day = d.getDay() - 1;
+  let day = d.getDay();
+  console.log(day);
   let date = d.getDate();
   let month = d.getMonth() - 1;
   let year = d.getFullYear();
