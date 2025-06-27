@@ -1,7 +1,3 @@
-function main() {
-  updateTime();
-}
-
 function updateTime() {
   let d = new Date();
 
@@ -38,4 +34,4 @@ function updateTime() {
   setTimeout(updateTime, 1000);
 }
 
-main();
+updateTime();
