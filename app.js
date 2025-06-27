@@ -1,3 +1,35 @@
+let titleBar = document.querySelector(".title-bar");
+titleBar.addEventListener("mousedown", moveWindow);
+
+function moveWindow(e) {
+  // This prevents the mouse from selecting text and making everything blue
+  e.preventDefault();
+  let app = document.querySelector(".window");
+
+  // Initial mouse position
+  let prevX = e.pageX;
+  let prevY = e.pageY;
+
+  // Window left and top coordinates
+  let leftOffset = app.offsetLeft;
+  let topOffset = app.offsetTop;
+
+  function mousemove(e) {
+    // Change the left and top position in CSS by adding the difference
+    // between the current mouse position and intial position
+    app.style.left = leftOffset + (e.pageX - prevX) + "px";
+    app.style.top = topOffset + (e.pageY - prevY) + "px";
+  }
+
+  function mouseup() {
+    document.removeEventListener("mousemove", mousemove);
+    document.removeEventListener("mouseup", mouseup);
+  }
+
+  document.addEventListener("mousemove", mousemove);
+  document.addEventListener("mouseup", mouseup);
+}
+
 function updateTime() {
   let d = new Date();
 
