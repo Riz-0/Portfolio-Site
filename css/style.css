@@ -111,6 +111,30 @@ ul {
   position: relative;
 }
 
+.launcher {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 8px;
+}
+
+.quick-launch {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: #fff;
+  background-color: #363636;
+  border-radius: 16px;
+  width: 64px;
+  height: 64px;
+}
+
 /* Nav Bar (only visible in mobile/tablet mode) */
 .nav-bar {
   display: flex;
@@ -132,6 +156,20 @@ ul {
 /* Dock (only visible in desktop mode) */
 .dock {
   display: none;
+}
+
+@media screen and (min-width: 370px) {
+  .app {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .quick-launch {
+    width: 500px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 1024px) {
