@@ -146,6 +146,10 @@ ul {
   margin: 16px 0;
 }
 
+.gap {
+  flex: 1;
+}
+
 /* Nav Bar (only visible in mobile/tablet mode) */
 .nav-bar {
   display: flex;
@@ -184,12 +188,13 @@ ul {
 
   .app-container {
     display: flex;
-    gap: 12px;
-    width: 740px;
+    gap: 10px;
+    width: 720px;
     margin: 0 auto;
   }
 
   .app-container .row {
+    /* Temporary measure to bring the apps down */
     flex: 1;
   }
 }
