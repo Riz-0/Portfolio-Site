@@ -178,6 +178,10 @@ ul {
   gap: 16px;
 }
 
+.title-bar p {
+  cursor: default;
+}
+
 .window .content {
   background-color: #fff;
   height: 1000px;
