@@ -152,40 +152,6 @@ ul {
 }
 
 /* Windows/Apps */
-.window {
-  width: 600px;
-  height: 450px;
-  border-radius: 16px;
-  overflow: hidden;
-  position: absolute;
-}
-
-.title-bar {
-  background-color: #444;
-  padding: 8px 16px;
-  color: #fff;
-  display: flex;
-  text-align: center;
-}
-
-.title-bar > div {
-  flex: 1;
-}
-
-.title-bar .window-controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-}
-
-.title-bar p {
-  cursor: default;
-}
-
-.window .content {
-  background-color: #fff;
-  height: 1000px;
-}
 
 /* Nav Bar*/
 .nav-bar {
@@ -283,5 +249,41 @@ ul {
 
   .dock a:hover {
     transform: scale(1.25);
+  }
+
+  /* Apps in desktop mode */
+  .window {
+    width: 600px;
+    height: 450px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .title-bar {
+    background-color: #444;
+    padding: 8px 16px;
+    color: #fff;
+    display: flex;
+    text-align: center;
+  }
+
+  .title-bar > div {
+    flex: 1;
+  }
+
+  .title-bar .window-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .title-bar p {
+    cursor: default;
+  }
+
+  .window .content {
+    background-color: #fff;
+    height: 1000px;
   }
 }
