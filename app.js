@@ -30,6 +30,7 @@ function moveWindow(e) {
   document.addEventListener("mouseup", mouseup);
 }
 
+// Date function
 function updateTime() {
   let d = new Date();
 

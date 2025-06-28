@@ -16,6 +16,10 @@ html {
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
+}
+
+body {
+  /* Just in case */
   overflow: hidden;
 }
 
@@ -71,6 +75,7 @@ ul {
   justify-content: space-between;
   padding: 5px 10px;
   color: #fff;
+  background-color: #141414;
 }
 
 .status-bar a {
@@ -152,6 +157,23 @@ ul {
 }
 
 /* Windows/Apps */
+.window {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.title-bar {
+  display: none;
+}
+
+.window .content {
+  height: 100%;
+  background-color: #fff;
+}
 
 /* Nav Bar*/
 .nav-bar {
@@ -199,6 +221,14 @@ ul {
   .app-container .row {
     /* Temporary measure to bring the apps down */
     flex: 1;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* Reset window position in tablet mode and below */
+  .window {
+    left: 0 !important;
+    top: 0 !important;
   }
 }
 
