@@ -1,4 +1,5 @@
 let apps = document.querySelectorAll(".window");
+let z = 1;
 apps.forEach((app) => {
   const titleBar = app.querySelector(".title-bar");
 
@@ -23,6 +24,12 @@ apps.forEach((app) => {
     }
     document.addEventListener("mousemove", mousemove);
     document.addEventListener("mouseup", mouseup);
+  });
+
+  app.addEventListener("mousedown", () => {
+    // Move app above each other when clicked
+    z = z + 1;
+    app.style.zIndex = z;
   });
 });
 
