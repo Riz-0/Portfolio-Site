@@ -19,6 +19,8 @@ apps.forEach((app) => {
       app.style.top = topOffset + (e.pageY - prevY) + "px";
     }
     function mouseup() {
+      // Reposition window if it's outside the screen
+      fixPosition();
       document.removeEventListener("mousemove", mousemove);
       document.removeEventListener("mouseup", mouseup);
     }
@@ -30,7 +32,85 @@ apps.forEach((app) => {
     // Move app above each other when clicked
     z = z + 1;
     app.style.zIndex = z;
+    fixPosition();
   });
+
+  const resizers = app.querySelectorAll(".resizer");
+  resizers.forEach((resizer) =>
+    resizer.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      isResizing = true;
+      let currentResizer = e.target;
+
+      let prevX = e.pageX;
+      let prevY = e.pageY;
+
+      document.addEventListener("mousemove", mousemove);
+      document.addEventListener("mouseup", mouseup);
+
+      function mousemove(e) {
+        let rect = app.getBoundingClientRect();
+
+        if (currentResizer.classList.contains("se")) {
+          // South-East Corner
+          app.style.width = rect.width - (prevX - e.pageX) + "px";
+          app.style.height = rect.height - (prevY - e.pageY) + "px";
+        } else if (currentResizer.classList.contains("sw")) {
+          // South-West Corner
+          app.style.width = rect.width + (prevX - e.pageX) + "px";
+          app.style.height = rect.height - (prevY - e.pageY) + "px";
+          if (rect.width != 275) {
+            app.style.left = app.offsetLeft - (prevX - e.pageX) + "px";
+          }
+        } else if (currentResizer.classList.contains("ne")) {
+          // North-East Corner
+          app.style.width = rect.width - (prevX - e.pageX) + "px";
+          app.style.height = rect.height + (prevY - e.pageY) + "px";
+          if (rect.height != 100) {
+            app.style.top = app.offsetTop - (prevY - e.pageY) + "px";
+          }
+        } else {
+          // North-West Corner
+          app.style.width = rect.width + (prevX - e.pageX) + "px";
+          app.style.height = rect.height + (prevY - e.pageY) + "px";
+          if (rect.height != 100) {
+            app.style.top = app.offsetTop - (prevY - e.pageY) + "px";
+          }
+          if (rect.width != 275) {
+            app.style.left = app.offsetLeft - (prevX - e.pageX) + "px";
+          }
+        }
+        prevX = e.pageX;
+        prevY = e.pageY;
+      }
+
+      function mouseup() {
+        // Check if window is outside of screen
+        fixPosition();
+        document.removeEventListener("mousemove", mousemove);
+        document.removeEventListener("mouseup", mouseup);
+      }
+    })
+  );
+
+  function fixPosition() {
+    // Reposition window if it's outside the screen
+    let rect = app.getBoundingClientRect();
+    if (rect.top < 0) {
+      console.log(rect.top);
+      app.style.top = 0;
+    }
+    if (rect.left < -(rect.width - 10)) {
+      console.log(rect.left);
+      app.style.left = 0;
+    }
+    if (rect.bottom > window.innerHeight) {
+      app.style.top = window.innerHeight - rect.height + "px";
+    }
+    if (rect.right > window.innerWidth + rect.width - 10) {
+      app.style.left = window.innerWidth - rect.width + "px";
+    }
+  }
 });
 
 // Date function

@@ -163,7 +163,6 @@ ul {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
 }
 
 .title-bar {
@@ -173,6 +172,36 @@ ul {
 .window .content {
   height: 100%;
   background-color: #fff;
+}
+
+.resizer {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+}
+
+.resizer.nw {
+  top: 0;
+  left: 0;
+  cursor: nwse-resize;
+}
+
+.resizer.ne {
+  top: 0;
+  right: 0;
+  cursor: nesw-resize;
+}
+
+.resizer.se {
+  bottom: 0;
+  right: 0;
+  cursor: nwse-resize;
+}
+
+.resizer.sw {
+  bottom: 0;
+  left: 0;
+  cursor: nesw-resize;
 }
 
 /* Nav Bar*/
@@ -229,6 +258,8 @@ ul {
   .window {
     left: 0 !important;
     top: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
   }
 }
 
@@ -286,6 +317,10 @@ ul {
   .window {
     width: 600px;
     height: 450px;
+    min-width: 275px;
+    min-height: 100px;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 16px;
     overflow: hidden;
     position: absolute;
