@@ -251,6 +251,11 @@ h2 {
   margin-bottom: 25px;
 }
 
+.constraint {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
 .thumbnail {
   border-radius: 25px;
   overflow: hidden;
