@@ -164,3 +164,14 @@ dockBtns.forEach((btn) => {
     app.style.zIndex = z;
   }
 });
+
+// Hide apps when nav bar is clicked
+const navBtns = document.querySelectorAll(".nav-bar a");
+navBtns.forEach((btn) => {
+  btn.addEventListener("click", onclick);
+
+  function onclick() {
+    const apps = document.querySelectorAll(".window");
+    apps.forEach((app) => (app.style.display = "none"));
+  }
+});
