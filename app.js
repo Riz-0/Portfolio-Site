@@ -151,3 +151,16 @@ function updateTime() {
 }
 
 updateTime();
+
+// Assign apps to their corresponding icons
+const dockBtns = document.querySelectorAll(".dock a");
+dockBtns.forEach((btn) => {
+  btn.addEventListener("click", onclick);
+
+  function onclick(e) {
+    let app = document.querySelector("." + btn.getAttribute("data-window"));
+    app.style.display = app.style.display === "none" ? "initial" : "none";
+    z += 1;
+    app.style.zIndex = z;
+  }
+});
