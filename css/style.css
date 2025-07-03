@@ -172,7 +172,14 @@ ul {
 
 .window .content {
   height: 100%;
-  background-color: #fff;
+  padding: 20px;
+  overflow-y: scroll;
+  /* Font */
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
 .resizer {
@@ -226,6 +233,23 @@ ul {
 /* Dock (only visible in desktop mode) */
 .dock {
   display: none;
+}
+
+/* Projects Go Here */
+h2 {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.thumbnail {
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.hades .content {
+  background-color: #141414;
 }
 
 @media screen and (min-width: 370px) {
@@ -347,10 +371,5 @@ ul {
 
   .title-bar p {
     cursor: default;
-  }
-
-  .window .content {
-    background-color: #fff;
-    height: 1000px;
   }
 }
