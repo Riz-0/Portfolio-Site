@@ -264,6 +264,16 @@ h2 {
   margin-bottom: 16px;
 }
 
+h3 {
+  font-size: 1.75rem;
+  text-decoration: underline;
+}
+
+h4 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
 .constraint {
   max-width: 768px;
   margin: 0 auto;
@@ -292,6 +302,7 @@ h2 {
 
 .links a {
   text-decoration: underline;
+  color: #ff0000;
 }
 
 .thumbnail {
@@ -301,6 +312,35 @@ h2 {
 
 .hades .content {
   background-color: #141414;
+}
+
+.process .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 36px 0;
+}
+
+.process .row.even {
+  flex-direction: row-reverse;
+}
+
+.process .image,
+.process .info {
+  flex: calc(50% - 16px);
+  min-width: 200px;
+}
+
+.process .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.process h3 {
+  border-top: 1px solid #fff;
+  padding: 24px 0 0;
 }
 
 @media screen and (min-width: 370px) {
