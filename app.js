@@ -2,94 +2,98 @@ let apps = document.querySelectorAll(".window");
 let z = 1;
 apps.forEach((app) => {
   const titleBar = app.querySelector(".title-bar");
+  let maximized = false;
 
   titleBar.addEventListener("mousedown", (e) => {
-    // Prevent text from being selected
-    e.preventDefault();
-    e.stopPropagation();
-    // Initial mouse position
-    let prevX = e.pageX;
-    let prevY = e.pageY;
-    // Window left and top coordinates
-    let leftOffset = app.offsetLeft;
-    let topOffset = app.offsetTop;
-    function mousemove(e) {
-      // Change the left and top position in CSS by adding the difference
-      // between the current mouse position and intial position
-      app.style.left = leftOffset + (e.pageX - prevX) + "px";
-      app.style.top = topOffset + (e.pageY - prevY) + "px";
+    if (!maximized) {
+      // Prevent text from being selected
+      e.preventDefault();
+      e.stopPropagation();
+      // Initial mouse position
+      let prevX = e.pageX;
+      let prevY = e.pageY;
+      // Window left and top coordinates
+      let leftOffset = app.offsetLeft;
+      let topOffset = app.offsetTop;
+      function mousemove(e) {
+        // Change the left and top position in CSS by adding the difference
+        // between the current mouse position and intial position
+        app.style.left = leftOffset + (e.pageX - prevX) + "px";
+        app.style.top = topOffset + (e.pageY - prevY) + "px";
+      }
+      function mouseup() {
+        // Reposition window if it's outside the screen
+        fixPosition();
+        document.removeEventListener("mousemove", mousemove);
+        document.removeEventListener("mouseup", mouseup);
+      }
+      document.addEventListener("mousemove", mousemove);
+      document.addEventListener("mouseup", mouseup);
     }
-    function mouseup() {
-      // Reposition window if it's outside the screen
-      fixPosition();
-      document.removeEventListener("mousemove", mousemove);
-      document.removeEventListener("mouseup", mouseup);
-    }
-    document.addEventListener("mousemove", mousemove);
-    document.addEventListener("mouseup", mouseup);
   });
 
   app.addEventListener("mousedown", () => {
     // Move app above each other when clicked
     z = z + 1;
     app.style.zIndex = z;
-    fixPosition();
   });
 
   const resizers = app.querySelectorAll(".resizer");
   resizers.forEach((resizer) =>
     resizer.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      isResizing = true;
-      let currentResizer = e.target;
+      if (!maximized) {
+        e.preventDefault();
+        isResizing = true;
+        let currentResizer = e.target;
 
-      let prevX = e.pageX;
-      let prevY = e.pageY;
+        let prevX = e.pageX;
+        let prevY = e.pageY;
 
-      document.addEventListener("mousemove", mousemove);
-      document.addEventListener("mouseup", mouseup);
+        document.addEventListener("mousemove", mousemove);
+        document.addEventListener("mouseup", mouseup);
 
-      function mousemove(e) {
-        let rect = app.getBoundingClientRect();
+        function mousemove(e) {
+          let rect = app.getBoundingClientRect();
 
-        if (currentResizer.classList.contains("se")) {
-          // South-East Corner
-          app.style.width = rect.width - (prevX - e.pageX) + "px";
-          app.style.height = rect.height - (prevY - e.pageY) + "px";
-        } else if (currentResizer.classList.contains("sw")) {
-          // South-West Corner
-          app.style.width = rect.width + (prevX - e.pageX) + "px";
-          app.style.height = rect.height - (prevY - e.pageY) + "px";
-          if (rect.width != 275 && rect.width != window.innerWidth) {
-            app.style.left = app.offsetLeft - (prevX - e.pageX) + "px";
+          if (currentResizer.classList.contains("se")) {
+            // South-East Corner
+            app.style.width = rect.width - (prevX - e.pageX) + "px";
+            app.style.height = rect.height - (prevY - e.pageY) + "px";
+          } else if (currentResizer.classList.contains("sw")) {
+            // South-West Corner
+            app.style.width = rect.width + (prevX - e.pageX) + "px";
+            app.style.height = rect.height - (prevY - e.pageY) + "px";
+            if (rect.width != 275 && rect.width != window.innerWidth) {
+              app.style.left = app.offsetLeft - (prevX - e.pageX) + "px";
+            }
+          } else if (currentResizer.classList.contains("ne")) {
+            // North-East Corner
+            app.style.width = rect.width - (prevX - e.pageX) + "px";
+            app.style.height = rect.height + (prevY - e.pageY) + "px";
+            if (rect.height != 100 && rect.height != window.innerHeight) {
+              app.style.top = app.offsetTop - (prevY - e.pageY) + "px";
+            }
+          } else {
+            // North-West Corner
+            app.style.width = rect.width + (prevX - e.pageX) + "px";
+            app.style.height = rect.height + (prevY - e.pageY) + "px";
+            if (rect.height != 100 && rect.height != window.innerHeight) {
+              app.style.top = app.offsetTop - (prevY - e.pageY) + "px";
+            }
+            if (rect.width != 275 && rect.width != window.innerWidth) {
+              app.style.left = app.offsetLeft - (prevX - e.pageX) + "px";
+            }
           }
-        } else if (currentResizer.classList.contains("ne")) {
-          // North-East Corner
-          app.style.width = rect.width - (prevX - e.pageX) + "px";
-          app.style.height = rect.height + (prevY - e.pageY) + "px";
-          if (rect.height != 100 && rect.height != window.innerHeight) {
-            app.style.top = app.offsetTop - (prevY - e.pageY) + "px";
-          }
-        } else {
-          // North-West Corner
-          app.style.width = rect.width + (prevX - e.pageX) + "px";
-          app.style.height = rect.height + (prevY - e.pageY) + "px";
-          if (rect.height != 100 && rect.height != window.innerHeight) {
-            app.style.top = app.offsetTop - (prevY - e.pageY) + "px";
-          }
-          if (rect.width != 275 && rect.width != window.innerWidth) {
-            app.style.left = app.offsetLeft - (prevX - e.pageX) + "px";
-          }
+          prevX = e.pageX;
+          prevY = e.pageY;
         }
-        prevX = e.pageX;
-        prevY = e.pageY;
-      }
 
-      function mouseup() {
-        // Check if window is outside of screen
-        fixPosition();
-        document.removeEventListener("mousemove", mousemove);
-        document.removeEventListener("mouseup", mouseup);
+        function mouseup() {
+          // Check if window is outside of screen
+          fixPosition();
+          document.removeEventListener("mousemove", mousemove);
+          document.removeEventListener("mouseup", mouseup);
+        }
       }
     })
   );
@@ -120,6 +124,14 @@ apps.forEach((app) => {
   const minBtn = app.querySelector(".minimize");
   minBtn.addEventListener("click", () => (app.style.display = "none"));
   minBtn.addEventListener("mousedown", (e) => e.stopPropagation());
+
+  // Maximize button
+  const maxBtn = app.querySelector(".maximize");
+  maxBtn.addEventListener("click", () => {
+    app.classList.toggle("maximized");
+    maximized = !maximized;
+  });
+  maxBtn.addEventListener("mousedown", (e) => e.stopPropagation());
 });
 
 // Date function
