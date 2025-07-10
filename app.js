@@ -2,10 +2,8 @@ let apps = document.querySelectorAll(".window");
 let z = 1;
 apps.forEach((app) => {
   const titleBar = app.querySelector(".title-bar");
-  let maximized = false;
-
   titleBar.addEventListener("mousedown", (e) => {
-    if (!maximized) {
+    if (app.getAttribute("data-maximized") != "true") {
       // Prevent text from being selected
       e.preventDefault();
       // Initial mouse position
@@ -40,7 +38,7 @@ apps.forEach((app) => {
   const resizers = app.querySelectorAll(".resizer");
   resizers.forEach((resizer) =>
     resizer.addEventListener("mousedown", (e) => {
-      if (!maximized) {
+      if (app.getAttribute("data-maximized") != "true") {
         e.preventDefault();
         isResizing = true;
         let currentResizer = e.target;
@@ -116,19 +114,30 @@ apps.forEach((app) => {
 
   // Close button
   const closeBtn = app.querySelector(".close");
-  closeBtn.addEventListener("click", () => (app.style.display = "none"));
+  closeBtn.addEventListener("click", hideApp);
   closeBtn.addEventListener("mousedown", (e) => e.stopPropagation());
 
   // Minimize button
   const minBtn = app.querySelector(".minimize");
-  minBtn.addEventListener("click", () => (app.style.display = "none"));
+  minBtn.addEventListener("click", hideApp);
   minBtn.addEventListener("mousedown", (e) => e.stopPropagation());
+
+  function hideApp() {
+    app.style.display = "none";
+    app.classList.remove("maximized");
+  }
 
   // Maximize button
   const maxBtn = app.querySelector(".maximize");
   maxBtn.addEventListener("click", () => {
     app.classList.toggle("maximized");
-    maximized = !maximized;
+    // This attribute is used to determine whether or not
+    // to re-add the maximize class when the window is hidden and re-shown
+    // as well as to determine whether to allow moving/resizing
+    app.setAttribute(
+      "data-maximized",
+      app.getAttribute("data-maximized") == "true" ? false : true
+    );
     z += 1;
     app.style.zIndex = z;
   });
@@ -179,9 +188,16 @@ const dockBtns = document.querySelectorAll(".dock a");
 dockBtns.forEach((btn) => {
   btn.addEventListener("click", onclick);
 
-  function onclick(e) {
+  function onclick() {
     let app = document.querySelector("." + btn.getAttribute("data-window"));
     app.style.display = app.style.display === "none" ? "block" : "none";
+    app.classList.remove("maximized");
+
+    // Determine whether to remaximize
+    if (app.getAttribute("data-maximized") == "true") {
+      app.classList.add("maximized");
+    }
+
     z += 1;
     app.style.zIndex = z;
   }

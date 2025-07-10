@@ -172,7 +172,7 @@ ul {
 
 .window .content {
   height: 100%;
-  padding: 40px 20px;
+  padding: 40px 20px 100px;
   overflow-y: scroll;
   color: #fff;
   text-align: center;
@@ -419,6 +419,11 @@ h4 {
     border-radius: 24px;
     padding: 16px;
     z-index: 10000;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+    transition: all 0.4s;
   }
 
   .dock a {
@@ -469,6 +474,24 @@ h4 {
     left: 0 !important;
     height: 100% !important;
     width: 100% !important;
-    position: relative !important;
+  }
+
+  /* Hide dock when any windows are maximized */
+  .maximized ~ .dock {
+    bottom: -75px;
+    transition: all 0.4s;
+  }
+
+  .maximized ~ .dock:hover {
+    bottom: 0;
+  }
+
+  .maximized ~ .dock::before {
+    /* Extends the hover range */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
   }
 }
