@@ -190,12 +190,16 @@ dockBtns.forEach((btn) => {
 
   function onclick() {
     let app = document.querySelector("." + btn.getAttribute("data-window"));
-    app.style.display = app.style.display === "none" ? "block" : "none";
-    app.classList.remove("maximized");
 
-    // Determine whether to remaximize
-    if (app.getAttribute("data-maximized") == "true") {
-      app.classList.add("maximized");
+    if (app.style.display != "none" && app.style.zIndex == z) {
+      app.style.display = "none";
+      app.classList.remove("maximized");
+    } else {
+      app.style.display = "block";
+      // Determine whether to remaximize
+      if (app.getAttribute("data-maximized") == "true") {
+        app.classList.add("maximized");
+      }
     }
 
     z += 1;
