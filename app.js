@@ -129,6 +129,8 @@ apps.forEach((app) => {
   maxBtn.addEventListener("click", () => {
     app.classList.toggle("maximized");
     maximized = !maximized;
+    z += 1;
+    app.style.zIndex = z;
   });
   maxBtn.addEventListener("mousedown", (e) => e.stopPropagation());
 });
