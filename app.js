@@ -8,7 +8,6 @@ apps.forEach((app) => {
     if (!maximized) {
       // Prevent text from being selected
       e.preventDefault();
-      e.stopPropagation();
       // Initial mouse position
       let prevX = e.pageX;
       let prevY = e.pageY;
