@@ -181,7 +181,7 @@ dockBtns.forEach((btn) => {
 
   function onclick(e) {
     let app = document.querySelector("." + btn.getAttribute("data-window"));
-    app.style.display = app.style.display === "none" ? "initial" : "none";
+    app.style.display = app.style.display === "none" ? "block" : "none";
     z += 1;
     app.style.zIndex = z;
   }
