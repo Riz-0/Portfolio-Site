@@ -6,6 +6,7 @@ apps.forEach((app) => {
   titleBar.addEventListener("mousedown", (e) => {
     // Prevent text from being selected
     e.preventDefault();
+    e.stopPropagation();
     // Initial mouse position
     let prevX = e.pageX;
     let prevY = e.pageY;
@@ -109,6 +110,16 @@ apps.forEach((app) => {
       app.style.left = window.innerWidth - rect.width + "px";
     }
   }
+
+  // Close button
+  const closeBtn = app.querySelector(".close");
+  closeBtn.addEventListener("click", () => (app.style.display = "none"));
+  closeBtn.addEventListener("mousedown", (e) => e.stopPropagation());
+
+  // Minimize button
+  const minBtn = app.querySelector(".minimize");
+  minBtn.addEventListener("click", () => (app.style.display = "none"));
+  minBtn.addEventListener("mousedown", (e) => e.stopPropagation());
 });
 
 // Date function
