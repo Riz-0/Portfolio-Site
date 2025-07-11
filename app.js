@@ -198,16 +198,17 @@ dockBtns.forEach((btn) => {
       // App is on top, hide and remove the maximized class
       app.style.display = "none";
       app.classList.remove("maximized");
+      // The next highest window can now be hidden without a double click
+      z--;
     } else {
       app.style.display = "block";
       // Determine whether to remaximize
       if (app.getAttribute("data-maximized") == "true") {
         app.classList.add("maximized");
       }
+      // Put window on top
+      app.style.zIndex = ++z;
     }
-
-    z += 1;
-    app.style.zIndex = z;
   }
 });
 
