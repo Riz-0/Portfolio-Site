@@ -1,9 +1,0 @@
-*
-!.gitignore
-
-!index.html
-
-!css
-!css/*
-
-!app.js
