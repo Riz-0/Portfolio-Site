@@ -440,10 +440,13 @@ h4 {
     bottom: 0;
     transform: translate(-50%, 0);
     transition: all 0.4s;
+    /* Prevents windows from getting stuck behind the dock */
+    pointer-events: none;
   }
 
   .dock a {
     flex: 1;
+    pointer-events: auto;
   }
 
   .dock a:hover {
