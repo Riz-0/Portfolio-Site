@@ -212,6 +212,17 @@ dockBtns.forEach((btn) => {
   }
 });
 
+// Assign apps in mobile mode
+const appIcons = document.querySelectorAll(".launcher a");
+appIcons.forEach((icon) => {
+  icon.addEventListener("click", onclick);
+
+  function onclick() {
+    let app = document.querySelector("." + icon.getAttribute("data-window"));
+    app.style.display = "block";
+  }
+});
+
 // Hide apps when nav bar is clicked
 const navBtns = document.querySelectorAll(".nav-bar a");
 navBtns.forEach((btn) => {
