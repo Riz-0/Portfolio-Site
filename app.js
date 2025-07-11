@@ -1,6 +1,9 @@
 let apps = document.querySelectorAll(".window");
 let z = 1;
 apps.forEach((app) => {
+  // Assign z-indexes for each window at the start
+  app.style.zIndex = ++z;
+  // Move function
   const titleBar = app.querySelector(".title-bar");
   titleBar.addEventListener("mousedown", (e) => {
     if (app.getAttribute("data-maximized") != "true") {
@@ -192,6 +195,7 @@ dockBtns.forEach((btn) => {
     let app = document.querySelector("." + btn.getAttribute("data-window"));
 
     if (app.style.display != "none" && app.style.zIndex == z) {
+      // App is on top, hide and remove the maximized class
       app.style.display = "none";
       app.classList.remove("maximized");
     } else {
