@@ -230,6 +230,9 @@ navBtns.forEach((btn) => {
 
   function onclick() {
     const apps = document.querySelectorAll(".window");
-    apps.forEach((app) => (app.style.display = "none"));
+    apps.forEach((app) => {
+      app.style.display = "none";
+      app.classList.remove("maximized");
+    });
   }
 });
