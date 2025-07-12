@@ -329,6 +329,25 @@ h4 {
   color: #fffff4;
 }
 
+/* CMS */
+.cms .content {
+  background-color: #eee;
+  color: #8800ff;
+}
+
+.cms li {
+  background-color: #8800ff;
+  color: #eee;
+}
+
+.cms .process h3 {
+  border-top: 1px solid #8800ff;
+}
+
+.cms .thumbnail {
+  border: 1px solid #8800ff;
+}
+
 /* General settings */
 .process .row {
   display: flex;
