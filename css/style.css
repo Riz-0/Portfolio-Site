@@ -348,6 +348,16 @@ h4 {
   border: 1px solid #8800ff;
 }
 
+/* UI/UX Project */
+.figma .content {
+  background-color: #ffd43a;
+  color: #1a202c;
+}
+
+.figma li {
+  color: #ffd43a;
+}
+
 /* General settings */
 .process .row {
   display: flex;
