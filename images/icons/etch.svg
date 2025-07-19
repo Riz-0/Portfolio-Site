@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 615.33 614.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d8d8d8;
+      }
+
+      .cls-2 {
+        fill: #181818;
+      }
+
+      .cls-3 {
+        fill: #47463f;
+      }
+
+      .cls-3, .cls-4 {
+        font-family: BrushScriptMT, 'Brush Script MT';
+        font-size: 36px;
+      }
+
+      .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-4 {
+        fill: #fff200;
+      }
+
+      .cls-7 {
+        fill: #e8e8e8;
+      }
+
+      .cls-8 {
+        fill: #bc2025;
+      }
+    </style>
+    <clipPath id="clippath-1">
+      <rect class="cls-1" x="72.25" y="131.32" width="459.85" height="308.28" rx="20" ry="20"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-8" x="4.86" y="45.72" width="594.64" height="511.36" rx="70.44" ry="70.44"/>
+      <rect class="cls-2" x="66.61" y="126.21" width="471.14" height="321.14" rx="20" ry="20"/>
+      <g>
+        <rect class="cls-1" x="72.25" y="131.32" width="459.85" height="308.28" rx="20" ry="20"/>
+        <g class="cls-6">
+          <rect class="cls-7" x="-106.61" y="220.62" width="590.57" height="108.1" rx="20" ry="20" transform="translate(-143.71 298.41) rotate(-59.6)"/>
+          <rect class="cls-7" x="99.66" y="230.26" width="590.57" height="181.63" rx="20" ry="20" transform="translate(-81.84 499.25) rotate(-59.6)"/>
+        </g>
+      </g>
+      <circle class="cls-2" cx="84.71" cy="511.19" r="40.11"/>
+      <circle class="cls-2" cx="519.65" cy="508.62" r="40.11"/>
+      <circle class="cls-5" cx="84.71" cy="507.3" r="36.22"/>
+      <circle class="cls-5" cx="519.65" cy="504.73" r="36.22"/>
+      <text class="cls-4" transform="translate(204.94 99.49)"><tspan x="0" y="0">Etch-A-Sketch</tspan></text>
+      <text class="cls-3" transform="translate(206.94 101.49)"><tspan x="0" y="0">Etch-A-Sketch</tspan></text>
+    </g>
+  </g>
+</svg>
