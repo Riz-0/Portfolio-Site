@@ -363,6 +363,11 @@ h4 {
   background-color: #add8e6;
 }
 
+/* Ricing */
+.rice .content {
+  background-color: #44475a;
+}
+
 /* General settings */
 .process .row {
   display: flex;
